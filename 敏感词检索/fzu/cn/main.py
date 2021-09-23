@@ -6,14 +6,20 @@ import sys
 if __name__ == '__main__':
 
     #将敏感词文件导入Words
-    SensitiveWords = open(sys.argv[1], 'r', encoding='UTF-8')
-    Words = SensitiveWords.readlines()
-    SensitiveWords.close()
+    try:
+        SensitiveWords = open(sys.argv[1], 'r', encoding='UTF-8')
+        Words = SensitiveWords.readlines()
+        SensitiveWords.close()
+    except:
+        print("读取内容出错")
 
     #将原文导入File
-    OrgFile = open(sys.argv[2], 'r', encoding='UTF-8')
-    File = OrgFile.readlines()
-    OrgFile.close()
+    try:
+        OrgFile = open(sys.argv[2], 'r', encoding='UTF-8')
+        File = OrgFile.readlines()
+        OrgFile.close()
+    except:
+        print("读取内容出错")
 
     #将ans文件打开，改为覆盖写模式
     AnsFile = open(sys.argv[3], 'w', encoding='UTF-8')
